@@ -258,7 +258,7 @@ class _SharedPreferencesStateProviderState
     super.initState();
     final VmService service = serviceManager.service!;
     final EvalOnDartLibrary extensionEval = EvalOnDartLibrary(
-      'package:shared_preferences/src/shared_preferences_async.dart',
+      'package:shared_preferences/src/devtools_extension.dart',
       service,
       serviceManager: serviceManager,
     );

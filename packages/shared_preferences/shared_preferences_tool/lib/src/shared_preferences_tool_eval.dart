@@ -76,6 +76,8 @@ class SharedPreferencesToolEval {
       }
     });
 
+    await _eval.eval('print("aa");', isAlive: isAlive);
+
     await _eval.eval(
       'DevtoolsExtension().$method',
       isAlive: isAlive,

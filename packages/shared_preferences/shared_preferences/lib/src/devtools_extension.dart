@@ -30,6 +30,7 @@ class DevtoolsExtension {
 
   /// Requests all legacy and async keys and post an event with the result.
   Future<void> requestAllKeys() async {
+    print('aaaa');
     final SharedPreferences legacyPrefs = await SharedPreferences.getInstance();
     final Set<String> legacyKeys = legacyPrefs.getKeys();
     final Set<String> asyncKeys = await SharedPreferencesAsync().getKeys();
