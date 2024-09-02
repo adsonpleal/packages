@@ -150,8 +150,8 @@ sealed class SharedPreferencesData implements _SharedPreferencesData<Object> {
     };
   }
 
-  /// The type of the value formatted in a pretty way.
-  String get prettyType {
+  /// The kind of the value as string.
+  String get kind {
     return switch (this) {
       SharedPreferencesDataString() => 'String',
       SharedPreferencesDataInt() => 'int',

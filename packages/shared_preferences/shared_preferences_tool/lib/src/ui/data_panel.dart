@@ -212,7 +212,7 @@ class _Content extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Text('Type: ${data.prettyType}'),
+              Text('Type: ${data.kind}'),
               const SizedBox(height: denseSpacing),
               if (editing) ...<Widget>[
                 const Text('Value:'),

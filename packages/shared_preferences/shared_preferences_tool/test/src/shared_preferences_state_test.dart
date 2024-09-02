@@ -32,22 +32,22 @@ void main() {
   test('should return pretty type', () {
     const SharedPreferencesData stringData =
         SharedPreferencesData.string(value: 'value');
-    expect(stringData.prettyType, 'String');
+    expect(stringData.kind, 'String');
 
     const SharedPreferencesData intData = SharedPreferencesData.int(value: 1);
-    expect(intData.prettyType, 'int');
+    expect(intData.kind, 'int');
 
     const SharedPreferencesData doubleData =
         SharedPreferencesData.double(value: 1.0);
-    expect(doubleData.prettyType, 'double');
+    expect(doubleData.kind, 'double');
 
     const SharedPreferencesData boolData =
         SharedPreferencesData.bool(value: true);
-    expect(boolData.prettyType, 'bool');
+    expect(boolData.kind, 'bool');
 
     const SharedPreferencesData stringListData =
         SharedPreferencesData.stringList(value: <String>['value1', 'value2']);
-    expect(stringListData.prettyType, 'List<String>');
+    expect(stringListData.kind, 'List<String>');
   });
 
   test('should change value', () {

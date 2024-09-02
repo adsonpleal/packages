@@ -5,6 +5,7 @@
 import 'package:devtools_app_shared/service.dart';
 import 'package:devtools_extensions/devtools_extensions.dart';
 import 'package:flutter/widgets.dart';
+import 'package:vm_service/src/vm_service.dart';
 
 import 'async_state.dart';
 import 'shared_preferences_state.dart';
@@ -255,20 +256,15 @@ class _SharedPreferencesStateProviderState
   @override
   void initState() {
     super.initState();
-    final EvalOnDartLibrary asyncEval = EvalOnDartLibrary(
+    final VmService service = serviceManager.service!;
+    final EvalOnDartLibrary extensionEval = EvalOnDartLibrary(
       'package:shared_preferences/src/shared_preferences_async.dart',
-      serviceManager.service!,
-      serviceManager: serviceManager,
-    );
-    final EvalOnDartLibrary legacyEval = EvalOnDartLibrary(
-      'package:shared_preferences/src/shared_preferences_legacy.dart',
-      serviceManager.service!,
+      service,
       serviceManager: serviceManager,
     );
     final SharedPreferencesToolEval toolEval = SharedPreferencesToolEval(
-      asyncEval,
-      legacyEval,
-      serviceManager.connectedApp?.isFlutterWebAppNow ?? false,
+      service,
+      extensionEval,
     );
     _notifier = SharedPreferencesStateNotifier(toolEval);
     _notifier.fetchAllKeys();
